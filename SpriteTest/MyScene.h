@@ -10,8 +10,8 @@
 #import "walking.h"
 
 @interface MyScene : SKScene
-@property (atomic, readonly) SKEmitterNode *smoke;
-@property (atomic, readonly) NSMutableArray *holder;
-@property (atomic, readonly) NSMutableArray *Kathyholder;
-@property (atomic, readonly) NSMutableArray *Spliffholder;
+@property (nonatomic, readonly) SKEmitterNode *smoke;
+@property (nonatomic, readonly) NSMutableArray *holder;
+@property (nonatomic, readonly) NSMutableArray *Kathyholder;
+@property (nonatomic, readonly) NSMutableArray *Spliffholder;
 @end

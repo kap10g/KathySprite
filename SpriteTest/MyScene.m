@@ -41,7 +41,6 @@
         CGPoint location = [touch locationInNode:self];
         
         SKSpriteNode *sprite = [smoke copy];
-        
         SKSpriteNode *kathy = [SKSpriteNode spriteNodeWithImageNamed:@"kathy"];
         
         sprite.position = location;
@@ -56,14 +55,18 @@
         
         [kathy runAction:[SKAction repeatActionForever:action]];
         
-        if ([holder count] > 4 || [Kathyholder count] > 4 || [Spliffholder count] > 4)
+        if ([holder count] > 0)
         {
-            [[holder objectAtIndex:0] removeFromParent];
-            [holder removeObject:0];
-            [[Kathyholder objectAtIndex:0] removeFromParent];
-            [Kathyholder removeObject:0];
-            [[Spliffholder objectAtIndex:0] removeFromParent];
-            [Spliffholder removeObject:0];
+            NSLog(@"Too long");
+            SKSpriteNode *holderSprite = [holder objectAtIndex:0];
+            [holder removeObject:holderSprite];
+            [holderSprite removeFromParent];
+            SKSpriteNode *kathySprite = [Kathyholder objectAtIndex:0];
+            [Kathyholder removeObject:kathySprite];
+            [kathySprite removeFromParent];
+            SKSpriteNode *spliffSprite = [Spliffholder objectAtIndex:0];
+            [Spliffholder removeObject:spliffSprite];
+            [spliffSprite removeFromParent];
         }
 
         
