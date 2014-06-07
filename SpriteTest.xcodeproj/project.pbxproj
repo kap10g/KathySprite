@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		379CE5D11938203800C39A2B /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5CF1938203800C39A2B /* MyParticle.sks */; };
+		379CE5D21938203800C39A2B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5D01938203800C39A2B /* spark.png */; };
+		379CE5D41938244500C39A2B /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5D31938244500C39A2B /* canvas.png */; };
+		379CE5D61938448400C39A2B /* kathy.png in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5D51938448400C39A2B /* kathy.png */; };
+		379CE5EB1939F75600C39A2B /* walking.atlasc in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5E91939F75600C39A2B /* walking.atlasc */; };
 		37F6379E1938149B0009E133 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F6379D1938149B0009E133 /* Foundation.framework */; };
 		37F637A01938149B0009E133 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F6379F1938149B0009E133 /* CoreGraphics.framework */; };
 		37F637A21938149B0009E133 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F637A11938149B0009E133 /* UIKit.framework */; };
@@ -38,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		379CE5CF1938203800C39A2B /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		379CE5D01938203800C39A2B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		379CE5D31938244500C39A2B /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
+		379CE5D51938448400C39A2B /* kathy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kathy.png; sourceTree = "<group>"; };
+		379CE5E91939F75600C39A2B /* walking.atlasc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = walking.atlasc; sourceTree = "<group>"; };
+		379CE5EA1939F75600C39A2B /* walking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = walking.h; sourceTree = "<group>"; };
 		37F6379A1938149B0009E133 /* SpriteTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37F6379D1938149B0009E133 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37F6379F1938149B0009E133 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,7 +142,13 @@
 				37F637B81938149B0009E133 /* ViewController.m */,
 				37F637BA1938149B0009E133 /* MyScene.h */,
 				37F637BB1938149B0009E133 /* MyScene.m */,
+				379CE5CF1938203800C39A2B /* MyParticle.sks */,
+				379CE5D51938448400C39A2B /* kathy.png */,
+				379CE5D31938244500C39A2B /* canvas.png */,
+				379CE5D01938203800C39A2B /* spark.png */,
 				37F637BD1938149B0009E133 /* Spaceship.png */,
+				379CE5E91939F75600C39A2B /* walking.atlasc */,
+				379CE5EA1939F75600C39A2B /* walking.h */,
 				37F637BF1938149B0009E133 /* Images.xcassets */,
 				37F637A61938149B0009E133 /* Supporting Files */,
 			);
@@ -214,6 +231,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "George Rosar";
 				TargetAttributes = {
+					37F637991938149B0009E133 = {
+						DevelopmentTeam = 7HBE7K2DHQ;
+					};
 					37F637C41938149B0009E133 = {
 						TestTargetID = 37F637991938149B0009E133;
 					};
@@ -244,7 +264,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				37F637BE1938149B0009E133 /* Spaceship.png in Resources */,
+				379CE5EB1939F75600C39A2B /* walking.atlasc in Resources */,
+				379CE5D41938244500C39A2B /* canvas.png in Resources */,
+				379CE5D11938203800C39A2B /* MyParticle.sks in Resources */,
 				37F637C01938149B0009E133 /* Images.xcassets in Resources */,
+				379CE5D61938448400C39A2B /* kathy.png in Resources */,
+				379CE5D21938203800C39A2B /* spark.png in Resources */,
 				37F637B61938149B0009E133 /* Main_iPad.storyboard in Resources */,
 				37F637B31938149B0009E133 /* Main_iPhone.storyboard in Resources */,
 				37F637AA1938149B0009E133 /* InfoPlist.strings in Resources */,
@@ -404,10 +429,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpriteTest/SpriteTest-Prefix.pch";
 				INFOPLIST_FILE = "SpriteTest/SpriteTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -418,10 +446,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpriteTest/SpriteTest-Prefix.pch";
 				INFOPLIST_FILE = "SpriteTest/SpriteTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -486,6 +517,7 @@
 				37F637D81938149B0009E133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37F637D91938149B0009E133 /* Build configuration list for PBXNativeTarget "SpriteTestTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +526,7 @@
 				37F637DB1938149B0009E133 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
