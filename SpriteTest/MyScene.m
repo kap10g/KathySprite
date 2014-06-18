@@ -9,7 +9,7 @@
 #import "MyScene.h"
 
 @implementation MyScene
-@synthesize smoke, holder, Kathyholder, Spliffholder;
+@synthesize smoke, holder, Kathyholder, Spliffholder, spliff;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -49,7 +49,8 @@
         kathy.xScale = (CGFloat) random()/(CGFloat) RAND_MAX;
         kathy.yScale = (CGFloat) random()/(CGFloat) RAND_MAX;
         
-        SKSpriteNode *spliff = [SKSpriteNode spriteNodeWithTexture:WALKING_TEX_CROP_1_LARGE];
+        spliff = [SKSpriteNode spriteNodeWithTexture:WALKING_TEX_CROP_1_LARGE];
+        
         
         SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
         
@@ -64,9 +65,10 @@
             SKSpriteNode *kathySprite = [Kathyholder objectAtIndex:0];
             [Kathyholder removeObject:kathySprite];
             [kathySprite removeFromParent];
-            SKSpriteNode *spliffSprite = [Spliffholder objectAtIndex:0];
-            [Spliffholder removeObject:spliffSprite];
-            [spliffSprite removeFromParent];
+            //SKSpriteNode *spliffSprite = [Spliffholder objectAtIndex:0];
+            //[Spliffholder removeObject:spliffSprite];
+            //spliffSprite.texture = nil;
+            //[spliffSprite removeFromParent];
         }
 
         
@@ -80,8 +82,9 @@
         spliff.xScale = spliffScale;
         spliff.yScale = spliffScale;
         spliff.position = location;
-        SKAction *walk = [SKAction animateWithTextures:WALKTHROUGH timePerFrame:0.033];
+        SKAction *walk = [SKAction repeatActionForever:[SKAction animateWithTextures:WALKTHROUGH timePerFrame:0.033]];
         [spliff runAction:walk];
+        
     }
 }
 
