@@ -9,7 +9,7 @@
 #import "MyScene.h"
 
 @implementation MyScene
-@synthesize smoke, holder, Kathyholder, Spliffholder, spliff;
+@synthesize smoke, holder, Kathyholder, Spliffholder, animateWalk, spriteAction, spliffTexture, count, spriteSubAction;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -21,7 +21,7 @@
         
         SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
       
-
+        count = 0;
         
         myLabel.text = @"FART";
         myLabel.fontSize = 30;
@@ -30,6 +30,14 @@
         NSString *smokePath = [[NSBundle mainBundle] pathForResource:@"MyParticle" ofType:@"sks"];
         smoke = [NSKeyedUnarchiver unarchiveObjectWithFile:smokePath];
         [self addChild:myLabel];
+        
+        SKTextureAtlas *walkAtlas = [SKTextureAtlas atlasNamed:@"walking"];
+        NSArray *textureNames = [walkAtlas textureNames];
+        _walkTextures = [NSMutableArray new];
+        for (NSString *name in textureNames) {
+            SKTexture *texture = [walkAtlas textureNamed:name];
+            [_walkTextures addObject:texture];
+        }
     }
     return self;
 }
@@ -38,6 +46,7 @@
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
+        count++;
         CGPoint location = [touch locationInNode:self];
         
         SKSpriteNode *sprite = [smoke copy];
@@ -49,8 +58,8 @@
         kathy.xScale = (CGFloat) random()/(CGFloat) RAND_MAX;
         kathy.yScale = (CGFloat) random()/(CGFloat) RAND_MAX;
         
-        spliff = [SKSpriteNode spriteNodeWithTexture:WALKING_TEX_CROP_1_LARGE];
         
+        //animateWalk = [[AnimateWalk alloc] init];
         
         SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
         
@@ -65,10 +74,13 @@
             SKSpriteNode *kathySprite = [Kathyholder objectAtIndex:0];
             [Kathyholder removeObject:kathySprite];
             [kathySprite removeFromParent];
-            //SKSpriteNode *spliffSprite = [Spliffholder objectAtIndex:0];
-            //[Spliffholder removeObject:spliffSprite];
-            //spliffSprite.texture = nil;
-            //[spliffSprite removeFromParent];
+            SKSpriteNode *spliffSprite = [Spliffholder objectAtIndex:0];
+            [Spliffholder removeObject:spliffSprite];
+            [Spliffholder objectAtIndex:0];
+            [spliffSprite removeAllActions];
+            [spliffSprite removeFromParent];
+            SKAction *tmpGhost = [SKAction removeFromParent];
+            [spliffSprite runAction:tmpGhost];
         }
 
         
@@ -76,15 +88,20 @@
         [self addChild:sprite];
         [Kathyholder addObject:kathy];
         [self addChild:kathy];
-        [Spliffholder addObject:spliff];
-        [self addChild:spliff];
+
         CGFloat spliffScale = ((CGFloat) random()/(CGFloat) RAND_MAX) * 0.5;
-        spliff.xScale = spliffScale;
-        spliff.yScale = spliffScale;
-        spliff.position = location;
-        SKAction *walk = [SKAction repeatActionForever:[SKAction animateWithTextures:WALKTHROUGH timePerFrame:0.033]];
-        [spliff runAction:walk];
+
+        SKSpriteNode *walk = [SKSpriteNode spriteNodeWithTexture:[_walkTextures objectAtIndex:0]];
+        walk.zPosition = 100;
+        walk.scale = spliffScale;
+        walk.position = location;
         
+        [self addChild:walk];
+        
+        SKAction *walkAction = [SKAction animateWithTextures:_walkTextures timePerFrame:0.03];
+        SKAction *remove = [SKAction removeFromParent];
+        [walk runAction:[SKAction sequence:@[walkAction,remove]]];
+
     }
 }
 

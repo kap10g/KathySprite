@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3747E7DA195D3D0F00BD9668 /* AnimateWalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 3747E7D9195D3D0F00BD9668 /* AnimateWalk.m */; };
 		379CE5D11938203800C39A2B /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5CF1938203800C39A2B /* MyParticle.sks */; };
 		379CE5D21938203800C39A2B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5D01938203800C39A2B /* spark.png */; };
 		379CE5D41938244500C39A2B /* canvas.png in Resources */ = {isa = PBXBuildFile; fileRef = 379CE5D31938244500C39A2B /* canvas.png */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3747E7D8195D3D0F00BD9668 /* AnimateWalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateWalk.h; sourceTree = "<group>"; };
+		3747E7D9195D3D0F00BD9668 /* AnimateWalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateWalk.m; sourceTree = "<group>"; };
 		379CE5CF1938203800C39A2B /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		379CE5D01938203800C39A2B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		379CE5D31938244500C39A2B /* canvas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canvas.png; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				37F637B81938149B0009E133 /* ViewController.m */,
 				37F637BA1938149B0009E133 /* MyScene.h */,
 				37F637BB1938149B0009E133 /* MyScene.m */,
+				3747E7D8195D3D0F00BD9668 /* AnimateWalk.h */,
+				3747E7D9195D3D0F00BD9668 /* AnimateWalk.m */,
 				379CE5CF1938203800C39A2B /* MyParticle.sks */,
 				379CE5D51938448400C39A2B /* kathy.png */,
 				379CE5D31938244500C39A2B /* canvas.png */,
@@ -295,6 +300,7 @@
 				37F637B91938149B0009E133 /* ViewController.m in Sources */,
 				37F637B01938149B0009E133 /* AppDelegate.m in Sources */,
 				37F637AC1938149B0009E133 /* main.m in Sources */,
+				3747E7DA195D3D0F00BD9668 /* AnimateWalk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
