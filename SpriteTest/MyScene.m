@@ -9,7 +9,7 @@
 #import "MyScene.h"
 
 @implementation MyScene
-@synthesize smoke, holder, Kathyholder, Spliffholder, animateWalk, spriteAction, spliffTexture, count, spriteSubAction;
+@synthesize smoke, holder, Kathyholder, Spliffholder, animateWalk, spriteAction, spliffTexture, count, spriteSubAction, walkAction, walk;
 
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
@@ -65,6 +65,19 @@
         
         [kathy runAction:[SKAction repeatActionForever:action]];
         
+        CGFloat spliffScale = ((CGFloat) random()/(CGFloat) RAND_MAX) * 0.5;
+        
+        walk = [SKSpriteNode spriteNodeWithTexture:[_walkTextures objectAtIndex:0]];
+        walk.zPosition = 100;
+        walk.scale = spliffScale;
+        walk.position = location;
+        
+        [self addChild:walk];
+        
+        walkAction = [SKAction repeatActionForever:[SKAction animateWithTextures:_walkTextures timePerFrame:0.03]];
+        
+        [walk runAction:[SKAction sequence:@[walkAction]]];
+        
         if ([holder count] > 0)
         {
             NSLog(@"Too long");
@@ -81,6 +94,10 @@
             [spliffSprite removeFromParent];
             SKAction *tmpGhost = [SKAction removeFromParent];
             [spliffSprite runAction:tmpGhost];
+            [self removeAnimation];
+            SKAction *remove = [SKAction removeFromParent];
+            [walk runAction:[SKAction sequence:@[remove]]];
+            
         }
 
         
@@ -89,20 +106,19 @@
         [Kathyholder addObject:kathy];
         [self addChild:kathy];
 
-        CGFloat spliffScale = ((CGFloat) random()/(CGFloat) RAND_MAX) * 0.5;
-
-        SKSpriteNode *walk = [SKSpriteNode spriteNodeWithTexture:[_walkTextures objectAtIndex:0]];
-        walk.zPosition = 100;
-        walk.scale = spliffScale;
-        walk.position = location;
-        
-        [self addChild:walk];
-        
-        SKAction *walkAction = [SKAction animateWithTextures:_walkTextures timePerFrame:0.03];
-        SKAction *remove = [SKAction removeFromParent];
-        [walk runAction:[SKAction sequence:@[walkAction,remove]]];
-
     }
+}
+
+-(void)removeAnimation
+{
+    [walk removeAllActions];
+    walkAction = nil;
+}
+
+-(SKAction*)repeat:(SKAction*)vidi tote:(SKSpriteNode*)action
+{
+    
+    return vidi;
 }
 
 -(void)update:(CFTimeInterval)currentTime {
